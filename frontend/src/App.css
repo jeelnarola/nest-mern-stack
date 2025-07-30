@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@import 'swiper/css';
+@import 'swiper/css/effect-fade';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@layer {
+    .texColor {
+        @apply text-[#3BB77E];
+    }
+}
+
+#app {
+  height: 100%;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+
+
+
+
+
+
+
