@@ -23,7 +23,7 @@ function Bennare() {
     const [activeIndex, setActiveIndex] = useState(0);
     return (
         <>
-            <div className="container mx-auto h-[100vh] py-20">
+            <div className="container mx-auto  py-20">
                 <div className="w-[100%]  bg-blue-100 rounded-xl relative group  mx-auto overflow-hidden">
                     <button
                         ref={prevRef}

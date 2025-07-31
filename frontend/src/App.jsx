@@ -3,13 +3,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import HomePage from './Pages/HomePage'
-
+import { routers } from './Routers/User.Router'
+import {RouterProvider} from 'react-router-dom'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <HomePage/>
+      {/* <HomePage/> */}
+        <RouterProvider router={routers}></RouterProvider>
     </>
   )
 }
