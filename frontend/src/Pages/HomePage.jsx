@@ -5,7 +5,7 @@ import Bennare from '../Components/Common/Bennare'
 import { Outlet } from 'react-router-dom'
 import FeaturedCategories from '../Components/Common/FeaturedCategories'
 import SubBannerImage from '../Components/Common/SubBannerImage'
-import ListProduct from '../Components/Products/ListProduct'
+import IndexProduct from '../Components/Products/IndexProduct'
 
 function HomePage() {
   return (
@@ -14,7 +14,7 @@ function HomePage() {
         <Bennare/>
         <FeaturedCategories/>
         <SubBannerImage/>
-        <ListProduct/>
+        <IndexProduct/>
         {/* <Login/> */}
     </div>
   )
