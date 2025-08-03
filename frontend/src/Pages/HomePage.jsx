@@ -6,6 +6,7 @@ import { Outlet } from 'react-router-dom'
 import FeaturedCategories from '../Components/Common/FeaturedCategories'
 import SubBannerImage from '../Components/Common/SubBannerImage'
 import IndexProduct from '../Components/Products/IndexProduct'
+import BestSells from '../Components/Products/BestSells'
 
 function HomePage() {
   return (
@@ -15,6 +16,7 @@ function HomePage() {
         <FeaturedCategories/>
         <SubBannerImage/>
         <IndexProduct/>
+        <BestSells/>
         {/* <Login/> */}
     </div>
   )

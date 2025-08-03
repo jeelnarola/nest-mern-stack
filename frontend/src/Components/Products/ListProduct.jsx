@@ -14,7 +14,7 @@ function ListProduct({ product }) {
 
   return (
     <>
-      <div className="container mx-auto py-10">
+      <div className="container mx-auto ">
 
         {/* <div className="grid grid-cols-5 gap-2"> */}
         <div>
@@ -33,14 +33,14 @@ function ListProduct({ product }) {
               <img
                 src={product.image[0]}
                 alt="product"
-                className="w-full h-full object-contain p-3 transition duration-1000 ease-in-out opacity-100 group-hover:opacity-0 group-hover:hidden"
+                className="w-full h-full object-contain p-10 transition duration-1000 ease-in-out opacity-100 group-hover:opacity-0 group-hover:hidden scale-105 "
               />
 
               {/* Hover Image */}
               <img
                 src={product.image[1]}
                 alt="product hover"
-                className="w-full h-full object-contain p-3 transition duration-1000 ease-in-out opacity-0 group-hover:opacity-100 group-hover:block group-hover:scale-105 group-hover:brightness-110"
+                className="w-full h-full object-contain p-10 transition duration-1000 ease-in-out opacity-0 group-hover:opacity-100 group-hover:block scale-100  group-hover:scale-105 group-hover:brightness-110"
               />
             </div>
             <div className='px-5 pt-8'>
