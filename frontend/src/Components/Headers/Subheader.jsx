@@ -8,7 +8,7 @@ function Subheader() {
   return (
     <>
       <div className='md:border-b-1 md:border-gray-300 p-5'>
-        <div className="container mx-auto">
+        <div className="container mx-auto ">
           <div className='flex justify-between items-center'>
             <div className='block lg:hidden text-3xl'>
               <IoMdMenu />

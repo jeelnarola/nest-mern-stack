@@ -4,7 +4,7 @@ function Topheader() {
   return (
     <>
       <div className='md:border-b-1 md:border-gray-300 md:bg-[#3BB77E] md:text-white lg:bg-white md:p-2 lg:text-gray-400'>
-        <div className="container mx-auto ">
+        <div className="container mx-auto">
           <div className='flex lg:justify-between justify-center'>
             <div className='hidden lg:block'>
               <ul className='flex gap-2 text-[13px] text-gray-400'>

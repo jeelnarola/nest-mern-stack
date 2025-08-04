@@ -37,7 +37,7 @@ function HeaderActionicon() {
                             {/* Submenu */}
                             {hovered === label && (
                                 <div
-                                    className={`absolute top-[50px] bg-white shadow-lg border  border-gray-200 rounded-md text-sm z-10 ${label === "Cart" ? "w-[300px] md:w-[400px] h-80 p-5 right-0 xl:right-auto" : "w-44 p-3 -right-10"
+                                    className={`absolute top-[50px] bg-white shadow-lg border  border-gray-200 rounded-md text-sm z-10 ${label === "Cart" ? "w-[300px] md:w-[400px] h-80 p-5 right-0 xl:-right-20" : "w-44 p-3 -right-3"
                                         }`}
                                 >
                                     {label === "Cart" ? <CartDropDown /> : <SubMenu />}
