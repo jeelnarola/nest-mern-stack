@@ -101,4 +101,12 @@ export const login = async (req, res) => {
   }
 };
 
-
+export const logout = async (req, res) => {
+  try {
+    res.clearCookie("jwt-Nest");
+    res.status(201).json({ success: true, message: "Logged out successfully" });
+  } catch (error) {
+    console.log("Error in Logout controller", error.message);
+    res.status(500).json({ success: false, message: "Interna; Server Error" });
+  }
+};
