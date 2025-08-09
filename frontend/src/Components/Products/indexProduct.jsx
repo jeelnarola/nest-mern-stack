@@ -2,6 +2,8 @@ import ListProduct from "./ListProduct";
 import product1 from '../../assets/product-1-1.jpg'
 import product2 from '../../assets/product-1-2.jpg'
 import { useState } from "react";
+import { useEffect } from "react";
+import getAllProducts from "../../services/ProductService";
 const dummyProducts = [
   {
     image: [product1, product2], // import or public path
@@ -65,6 +67,22 @@ const dummyProducts = [
 const ProductNav = ['All', 'Milks & Dairies', 'Coffes & Teas', 'Pet Foods', 'Meats', 'Vegetables', 'Fruits']
 function IndexProduct() {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const [Products,setProducts] = useState([])
+ useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await getAllProducts();
+        
+        setProducts(res.products || []); // Defensive check
+      } catch (err) {
+        console.error("Failed to fetch products:", err);
+      }
+    };
+    fetchProducts();
+  }, []);
+  console.log("res",Products);
+  // console.log("Pr
   return (
     <div className="container mx-auto my-10">
 
@@ -81,8 +99,8 @@ function IndexProduct() {
           }
         </ul>
       </div>
-      <div className="grid grid-cols-5 gap-3">
-        {dummyProducts.map((product, index) => (
+      <div className="grid grid-cols-5 gap-3 mt-10">
+        {Products.slice(0,10).map((product, index) => (
           <ListProduct key={index} product={product} />
         ))}
       </div>

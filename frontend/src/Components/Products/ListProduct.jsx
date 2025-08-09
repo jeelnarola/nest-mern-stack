@@ -1,16 +1,8 @@
 import { useState } from "react";
 
 function ListProduct({ product, props }) {
-  console.log("Product :- ", props);
+  console.log("Product :- ", product);
   const [hovered, setHovered] = useState(false);
-  // const [Products,setProducts] = useState([])
-  // useEffect(() => {
-  //   getAllProducts()
-  //    .then(res => setProducts(res.products))
-  //     .catch(console.error);
-  // }, []);
-  // console.log("Product",Products);
-
   return (
     <>
       <div className="container mx-auto ">
@@ -31,30 +23,48 @@ function ListProduct({ product, props }) {
             )}
             <div className="w-full h-64 grid place-items-center group overflow-hidden cursor-pointer">
               {/* Default Image */}
-              <img
-                src={product.image[0]}
+              <div className="w-full h-64 grid place-items-center group overflow-hidden cursor-pointer">
+                {/* Default Image */}
+                <img
+                  src={product?.images?.[0] || "https://via.placeholder.com/300x300?text=No+Image"}
+                  alt="product"
+                  className="w-full h-full object-contain p-5 pb-0 transition duration-1000 ease-in-out opacity-100 group-hover:opacity-0 group-hover:hidden scale-105"
+                />
+
+                {/* Hover Image (only if second image exists) */}
+                {product?.images?.[1] && (
+                  <img
+                    src={product.images[1]}
+                    alt="product hover"
+                    className="w-full h-full object-contain p-5 pb-0 transition duration-1000 ease-in-out opacity-0 group-hover:opacity-100 group-hover:block scale-100 group-hover:scale-105 group-hover:brightness-110"
+                  />
+                )}
+              </div>
+
+              {/* <img
+                src={product.images[0]}
                 alt="product"
                 className="w-full h-full object-contain p-5 pb-0 transition duration-1000 ease-in-out opacity-100 group-hover:opacity-0 group-hover:hidden scale-105 "
-              />
+              /> */}
 
               {/* Hover Image */}
-              <img
+              {/* <img
                 src={product.image[1]}
                 alt="product hover"
                 className="w-full h-full object-contain p-5 pb-0 transition duration-1000 ease-in-out opacity-0 group-hover:opacity-100 group-hover:block scale-100  group-hover:scale-105 group-hover:brightness-110"
-              />
+              /> */}
             </div>
             <div className="px-5 pt-8">
               <p className="text-sm text-gray-500 pb-2">{product.category}</p>
               <h3 className="text-lg font-semibold text-gray-800 leading-snug mb-2">
                 {product.title}
               </h3>
-              <div className="flex items-center text-sm text-yellow-500 mb-5">
+              {/* <div className="flex items-center text-sm text-yellow-500 mb-5">
                 {"⭐".repeat(Math.floor(product.rating))}
                 <span className="ml-1 text-gray-600 ">
                   ({product.rating.toFixed(1)})
                 </span>
-              </div>
+              </div> */}
               <p className="text-sm text-gray-500">
                 By{" "}
                 <span className="text-green-500 font-medium">
@@ -62,36 +72,39 @@ function ListProduct({ product, props }) {
                 </span>
               </p>
               <div
-                className={` ${
-                  props == "Best Sells"
+                className={` ${props == "Best Sells"
                     ? "block "
                     : "flex items-center justify-between mt-3 pb-5"
-                }`}
+                  }`}
               >
                 <div className="flex items-center ">
                   <p className="text-xl font-semibold text-green-600">
-                    ${product.price.toFixed(2)}
+                    ${product.price}
                   </p>
                   <p className="text-md text-gray-400 line-through pl-3 pr-4">
-                    ${product.originalPrice.toFixed(2)}
+                    ${Math.round(product.price / (1 - product.discountPercentage / 100))}
                   </p>
                 </div>
+                    {
+                      props == 'Best Sells' &&(
+                        
                 <div className="my-5">
                   {/* Progress Bar Track */}
                   <div className="w-full h-2 bg-gray-400 rounded-full">
                     {/* Progress Fill */}
                     <div
                       className="h-2 bg-[#3BB77E] rounded-full"
-                       style={{ width: `${(product.sold / product.quantity) * 100}%` }}
+                      style={{ width: `${(product.sold / product.quantity) * 100}%` }}
                     ></div>
                   </div>
-                <div className="text-sm">Sold: {product.sold}/{product.quantity}</div>
+                  <div className="text-sm">Sold: {product.sold}/{product.quantity}</div>
                 </div>
+                      )
+                    }
 
                 <button
-                  className={`mb-3 cursor-pointer mt-5 ${
-                    props == "Best Sells" ? "w-full " : "w-[80%]"
-                  } bg-green-100 text-green-700 font-semibold py-1 rounded flex justify-center items-center gap-1 hover:bg-green-200 `}
+                  className={`mb-3 cursor-pointer mt-5 ${props == "Best Sells" ? "w-full " : "w-[80%]"
+                    } bg-green-100 text-green-700 font-semibold py-1 rounded flex justify-center items-center gap-1 hover:bg-green-200 `}
                 >
                   🛒 Add
                 </button>
