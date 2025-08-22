@@ -15,7 +15,7 @@ function ProfileIndex() {
             </div>
 
             {/* Content */}
-            <div className="pt-5">
+            <div className="pt-5 w-full">
               <Outlet />
             </div>
           </div>

@@ -4,7 +4,7 @@ import { FiShoppingBag, FiMapPin, FiUser, FiLogOut, FiTruck, FiMenu, FiX } from 
 import { useState } from "react";
 
 function SidebarProfile() {
-   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
     { name: "Dashboard", icon: <FaSlidersH />, path: "/profile" },
@@ -12,7 +12,7 @@ function SidebarProfile() {
     { name: "Track Your Order", icon: <FiTruck />, path: "/profile/orders/track" },
     { name: "My Address", icon: <FiMapPin />, path: "/profile/address" },
     { name: "Account details", icon: <FiUser />, path: "/profile/account" },
-    { name: "Logout", icon: <FiLogOut />, path: "/logout" },
+    { name: "Logout", icon: <FiLogOut />, },
   ];
 
   return (
@@ -26,32 +26,62 @@ function SidebarProfile() {
       </div>
 
       {/* Sidebar */}
-   <div
-  className={`bg-white w-64 p-4 space-y-3 md:block h-full z-50 transition-transform transform
+      <div
+        className={`bg-white w-64 p-4 space-y-3 md:block h-full z-50 transition-transform transform
     ${isOpen ? "translate-x-0" : "-translate-x-full"} 
     md:translate-x-0 shadow-lg md:shadow-none`}
->
+      >
         <ul className="space-y-3">
           {menuItems.map((item) => (
             <li key={item.name}>
-              <NavLink
-                to={item.path}
-                end
-                className={({ isActive }) =>
-                  `w-full flex items-center gap-3 px-4 py-3 rounded-lg border font-medium transition-all ${
-                    isActive
+              {item.name === "Logout" ? (
+                // Logout Button (no NavLink)
+                <button
+                  onClick={() => {
+                    // ✅ Clear cookies
+                    document.cookie.split(";").forEach((c) => {
+                      document.cookie = c
+                        .replace(/^ +/, "")
+                        .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+                    });
+
+                    // ✅ Clear storage
+                    localStorage.clear();
+                    sessionStorage.clear();
+
+                    // ✅ Redirect
+                    window.location.href = "/login";
+                  }}
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-lg border font-medium transition-all 
+               text-gray-600 border-gray-200 
+               hover:bg-red-100 hover:text-red-600 
+               active:bg-red-200 active:text-red-700"
+                >
+                  <span className="text-lg">{item.icon}</span>
+                  <span>{item.name}</span>
+                </button>
+              ) : (
+                // Normal NavLink
+                <NavLink
+                  to={item.path}
+                  end
+                  className={({ isActive }) =>
+                    `w-full flex items-center gap-3 px-4 py-3 rounded-lg border font-medium transition-all ${isActive
                       ? "bg-green-500 text-white border-green-500 shadow-md"
                       : "text-gray-600 hover:bg-gray-100 border-gray-200"
-                  }`
-                }
-                onClick={() => setIsOpen(false)} // Close menu on mobile click
-              >
-                <span className="text-lg">{item.icon}</span>
-                <span>{item.name}</span>
-              </NavLink>
+                    }`
+                  }
+                  onClick={() => setIsOpen(false)} // Close menu on mobile click
+                >
+                  <span className="text-lg">{item.icon}</span>
+                  <span>{item.name}</span>
+                </NavLink>
+              )}
+
             </li>
           ))}
         </ul>
+
       </div>
     </>
   );
