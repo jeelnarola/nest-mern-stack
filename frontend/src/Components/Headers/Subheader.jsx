@@ -1,4 +1,4 @@
-import React from 'react'
+import { NavLink } from "react-router-dom";
 import logo from '../../assets/logo.svg'
 import SearchBox from '../Common/SearchBox'
 import LocationBox from '../Common/LocationBox'
@@ -13,9 +13,9 @@ function Subheader() {
             <div className='block lg:hidden text-3xl'>
               <IoMdMenu />
             </div>
-            <div>
+            <NavLink to="/">
               <img src={logo} alt="Logo Loading..." className='w-34 md:w-auto' />
-            </div>
+            </NavLink>
             <div className='hidden lg:block'>
               <SearchBox />
             </div>

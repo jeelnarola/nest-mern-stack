@@ -7,11 +7,11 @@ function SidebarProfile() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { name: "Dashboard", icon: <FaSlidersH />, path: "/profile" },
-    { name: "Orders", icon: <FiShoppingBag />, path: "/profile/orders" },
-    { name: "Track Your Order", icon: <FiTruck />, path: "/profile/orders/track" },
-    { name: "My Address", icon: <FiMapPin />, path: "/profile/address" },
-    { name: "Account details", icon: <FiUser />, path: "/profile/account" },
+    { name: "Dashboard", icon: <FaSlidersH />, path: "/account" },
+    { name: "Orders", icon: <FiShoppingBag />, path: "/account/orders" },
+    { name: "Track Your Order", icon: <FiTruck />, path: "/account/orders/track" },
+    { name: "My Address", icon: <FiMapPin />, path: "/account/address" },
+    { name: "Account details", icon: <FiUser />, path: "/account/details" },
     { name: "Logout", icon: <FiLogOut />, },
   ];
 

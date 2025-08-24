@@ -11,6 +11,9 @@ import DashboardProfile from '../Components/Profile/DashboardProfile'
 import YourOrders from '../Components/Profile/YourOrders'
 import UserAddress from '../Components/Profile/UserAddress'
 import OrdersTracking from '../Components/Profile/OrdersTracking'
+import AdminLayout from '../Components/Layouts/AdminLayout'
+import AdminDashboard from '../Pages/admin/AdminDashboard'
+import ProtectedRoute from '../utils/ProtectedRoute'
 export const routers = createBrowserRouter(
     [
         {
@@ -42,17 +45,24 @@ export const routers = createBrowserRouter(
                         }
                     ]
                 }, {
-                    path: 'profile',
+                    path: 'account',
                     element: <ProfileIndex />,
                     children: [
                         { index: true, element: <DashboardProfile /> }, // default route (/profile)
-                          { path: 'orders', element: <YourOrders /> },
-                          { path: 'orders/track', element: <OrdersTracking /> },
-                          { path: 'address', element: <UserAddress /> },
+                        { path: 'orders', element: <YourOrders /> },
+                        { path: 'orders/track', element: <OrdersTracking /> },
+                        { path: 'address', element: <UserAddress /> },
                         //   { path: 'address', element: <Address /> },
                         //   { path: 'account', element: <AccountDetails /> }
                     ]
                 }
+            ]
+        },
+        {
+            path: "/admin",
+            element: <ProtectedRoute />,
+            children: [
+                { index: true, element: <AdminLayout /> } // ✅ default /admin route
             ]
         }
     ]
