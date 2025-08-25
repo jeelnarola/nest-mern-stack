@@ -1,8 +1,12 @@
 import React from 'react'
+import SideBar from '../../Components/Admin/SideBar'
 
 function AdminDashboard() {
   return (
-    <div>AdminDashboard</div>
+    <>
+      {/* <SideBar/> */}
+      <h1>Dashboard</h1>
+    </>
   )
 }
 

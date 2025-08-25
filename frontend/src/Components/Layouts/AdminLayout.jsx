@@ -1,14 +1,29 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import HeaderIndex from '../Headers/HeaderIndex'
-import Footer from '../Common/Footer'
+import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
+import SideBar from "../Admin/SideBar";
+import AdminHeader from "../Admin/AdminHeader";
 
 function AdminLayout() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(prev => !prev);
+  };
+
   return (
-    <>
-        <Outlet/>
-    </>
-  )
+    <div className="flex h-screen">
+      {/* Sidebar */}
+      <SideBar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
+
+      {/* Main content */}
+      <div className="flex-1 flex flex-col">
+        <AdminHeader toggleSidebar={toggleSidebar} />
+        <div className="flex-1 p-6">
+          <Outlet />
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default AdminLayout
+export default AdminLayout;

@@ -18,6 +18,15 @@ body {
   height: 100%;
 }
 
+@layer utilities {
+  .scrollbar-hidden::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+  .scrollbar-hidden { 
+    -ms-overflow-style: none;  /* IE/Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+  .ios-momentum { -webkit-overflow-scrolling: touch; }
+}
+
 
 
 
