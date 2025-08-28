@@ -1,4 +1,5 @@
 import User from "../../models/users/users.model.js";
+import cloudinary from "../../utils/cloudinary.js";
 import { generateJWT } from "../../utils/generatejwt .js";
 
 export const register = async (req, res) => {
@@ -120,10 +121,15 @@ export const updateProfile = async (req, res) => {
     if (!profilePic) {
       return res.status(400).json({ message: "Profile pic is required" });
     }
-
+    const sizeInBytes = getBase64Size(profilePic);
+    if (sizeInBytes > 10 * 1024 * 1024) {
+      return res
+        .status(400)
+        .json({ message: "File size exceeds 10MB limit" });
+    }
     const uploadResponse = await cloudinary.uploader.upload(profilePic, {
-                folder: 'nest/profile', // ✅ store inside "image/" folder in Cloudinary
-            });
+      folder: 'nest/profile', // ✅ store inside "image/" folder in Cloudinary
+    });
     const updatedUser = await User.findByIdAndUpdate(
       userId,
       { profilePic: uploadResponse.secure_url },
@@ -136,3 +142,5 @@ export const updateProfile = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+
