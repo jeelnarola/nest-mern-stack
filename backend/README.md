@@ -45,7 +45,7 @@ Do you want me to also **add examples (request & response JSON)** for each API i
 
 | Method                                             | Endpoint            | Description          |
 | -------------------------------------------------- | ------------------- | -------------------- |
-| ![GET](https://img.shields.io/badge/GET-blue)      | `/api/products`     | Get all products     |
+| ![GET](https://img.shields.io/badge/GET-blue)      | `/api/product/show`     | Get all products     |
 | ![GET](https://img.shields.io/badge/GET-blue)      | `/api/products/:id` | Get product by ID    |
 | ![POST](https://img.shields.io/badge/POST-green)   | `/api/products`     | Create a new product |
 | ![PUT](https://img.shields.io/badge/PUT-yellow)    | `/api/products/:id` | Update product by ID |
