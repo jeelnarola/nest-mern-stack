@@ -18,7 +18,7 @@ function AdminLayout() {
       {/* Main content */}
       <div className="flex-1 flex flex-col">
         <AdminHeader toggleSidebar={toggleSidebar} />
-        <div className="flex-1 p-6">
+        <div className="flex-1 p-6 pb-0">
           <Outlet />
         </div>
       </div>
