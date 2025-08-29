@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function ListProduct({ product, props }) {
-  console.log("Product :- ", product);
+
   const [hovered, setHovered] = useState(false);
   return (
     <>

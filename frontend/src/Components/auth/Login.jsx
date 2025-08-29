@@ -1,6 +1,10 @@
 import React from 'react'
 
 function Login() {
+  const handelLogin = () =>{
+    sessionStorage.setItem("access_token", "true");
+    alert("Login successfully....")
+  }
  return (
     <div className=" flex items-center justify-center bg-gray-50 h-[100vh]">
       <div className=" w-full flex max-w-5xl ">
@@ -64,7 +68,7 @@ function Login() {
           </div>
 
           {/* Login Button */}
-          <button className="w-full bg-[#253D4E] text-white font-bold py-3 rounded-lg hover:bg-[#1c2e3f] transition">
+          <button onClick={()=>handelLogin()} className="w-full bg-[#253D4E] text-white font-bold py-3 rounded-lg hover:bg-[#1c2e3f] transition">
             Log in
           </button>
         </div>

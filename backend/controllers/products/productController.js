@@ -130,5 +130,19 @@ export const singleProduct = async (req, res) => {
   }
 };
 
+export const deleteProduct = async (req,res)=>{
+  try {
+      const { ids } = req.body; 
+       if (!ids || !Array.isArray(ids)) {
+      return res.status(400).json({ message: "Please provide an array of IDs" });
+    }
+    const result = await Product.deleteMany({ _id: { $in: ids } });
+    res.json({ message: `${result.deletedCount} products deleted successfully` });
+  } catch (error) {
+     console.log("Error in Delete Products:", error);
+    res.status(500).json({ error: "Something went wrong" });
+  }
+}
+
 
 
