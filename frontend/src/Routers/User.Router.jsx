@@ -16,6 +16,7 @@ import AdminDashboard from "../Pages/admin/AdminDashboard";
 import ProtectedRoute from "../utils/ProtectedRoute";
 import Page404 from "../Pages/page404";
 import ProductIndex from "../Pages/admin/product/ProductIndex";
+import AddProductForm from "../Components/Admin/Product/AddProductForm";
 export const routers = createBrowserRouter([
   {
     path: "/",
@@ -71,6 +72,7 @@ export const routers = createBrowserRouter([
           { index: true, element: <AdminDashboard /> }, // /admin → dashboard
           { path: "dashboard", element: <AdminDashboard /> }, // /admin/dashboard
           {path:"products",element:<ProductIndex/>},
+          {path:"addProduct",element:<AddProductForm/>},
           { path: "*", element: <Page404 /> }, // /admin/*
         ],
       },
