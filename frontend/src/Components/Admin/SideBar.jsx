@@ -13,7 +13,7 @@ function SideBar({ isOpen, setIsOpen }) {
     { name: "Dashboard", path: "dashboard", icon: <MdDashboard size={22} /> },
     { name: "Products", path: "products", icon: <FaBoxOpen size={22} /> },
     { name: "Product Detail", path: "product-detail", icon: <AiOutlineShopping size={22} /> },
-    { name: "Add Product", path: "add-product", icon: <MdAddBox size={22} /> },
+    { name: "Add Product", path: "addproduct", icon: <MdAddBox size={22} /> },
     { name: "Customers", path: "customers", icon: <MdPeople size={22} /> },
     { name: "Orders", path: "orders", icon: <FaReceipt size={22} /> },
     { name: "Order Detail", path: "order-detail", icon: <FaReceipt size={22} /> },
